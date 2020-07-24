@@ -1,5 +1,6 @@
+ 
 require 'pry'
-
+require_relative 'Player'
 
 class Board 
 	attr_accessor :array_boardcase, :count_turn 
@@ -12,6 +13,7 @@ class Board
     #Ces instances sont rangées dans un array/hash qui est l'attr_accessor de la classe
     @count_turn = 0
     @board = {"A1"=>"","B1"=>"", "C1"=>"","A2"=>"","B2"=>"","C2"=>"","A3"=>"","B3"=>"","C3"=>""}
+
   end
 
   def play_turn
@@ -19,6 +21,10 @@ class Board
 
     #1) demande au bon joueur ce qu'il souhaite faire
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
+        if count_turn % 2 == 0
+      puts " Joueur 1 à toi de jouer !"
+    else puts " Joueur 2 à toi de jouer !"
+    end
     
     puts " Choissisez la case à remplir "
     print ">"
@@ -31,10 +37,6 @@ class Board
     @count_turn += 1
     puts @count_turn
     
-    if count_turn % 2 == 0
-      puts " Player 1 à toi de jouer !"
-    else puts "Player 2 à toi de jouer !"
-    end
 
 	end
 
@@ -63,6 +65,7 @@ class Board
   end
 
 end
+
 
 
 
